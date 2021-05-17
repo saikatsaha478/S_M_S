@@ -33,15 +33,14 @@ if(isset($_POST['Registration'])){
 			$username_check = mysqli_query($link,"SELECT * FROM `users` WHERE `Username`='$username';");
 			if(mysqli_num_rows($username_check) == 0){
 				if(strlen($username) >= 4){
-					if(strlen($password) > 6)
-					{
+					if(strlen($password) > 6){
 						if($password == $c_pass){
 							$password = md5($password);
 							$query = "INSERT INTO `users`(`Name`, `Email`, `Username`, `Password`, `Photo`,`status`) VALUES ('$name','$email','$username','$password','$photo_name','Inactive')";
 							$result = mysqli_query($link,$query);
 							if($result){
 								$_SESSION['data_insert_success'] = "Data Inserted successfully";
-								move_uploaded_file($_FILES['photo']['tmp_name'],'imaage/'.$photo_name);
+								move_uploaded_file($_FILES['photo']['tmp_name'],'image/'.$photo_name);
 								header('location:Registration.php');
 							}
 							else{
