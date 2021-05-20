@@ -61,30 +61,21 @@
 </tr>
 </thead>
 <tbody>
+<?php 
+$db_sinfo = mysqli_query($link,"SELECT * FROM `student_info`");
+while($row = mysqli_fetch_assoc($db_sinfo)){?>
+
 <tr>
-<td>1</td>
-<td>Saikat</td>
-<td>001</td>
-<td>Chittagong</td>
-<td>01846040494</td>
-<td><img style="width:30px" src="image/pic2.jpg" alt=""></img></td>
+<td><?php echo $row['Id'] ?></td>
+<td><?php echo ucwords($row['Name']) ?></td>
+<td><?php echo $row['Roll'] ?></td>
+<td><?php echo ucwords($row['City']) ?></td>
+<td><?php echo $row['P_contact'] ?></td>
+<td><img style="width:30px" src="student_image/<?php echo $row['Photo']; ?>" alt=""></img></td>
 </tr>
-<tr>
-<td>2</td>
-<td>Parna</td>
-<td>002</td>
-<td>Dhaka</td>
-<td>01846040494</td>
-<td><img style="width:30px" src="image/pic2.jpg" alt=""></img></td>
-</tr>
-<tr>
-<td>3</td>
-<td>Saha</td>
-<td>003</td>
-<td>Noakhali</td>
-<td>01726654516</td>
-<td><img style="width:30px" src="image/pic2.jpg" alt=""></img></td>
-</tr>
+<?php 
+}
+?>
 </tbody>
 </table>
 </div>

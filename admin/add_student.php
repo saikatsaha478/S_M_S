@@ -58,8 +58,8 @@ if(isset($_POST['add_Student'])){
 <div class="row">
   <div class="content">
   <div class="col-sm-12">
-  <?php if(isset($_SESSION['data_insert_success'])){ echo '<div class="alert alert-success">'.$_SESSION['data_insert_success'].'</div>';}?>
-  <?php if(isset($_SESSION['data_insert_error'])){ echo '<div class="alert alert-warning">'.$_SESSION['data_insert_error'].'</div>';}?>
+  <?php if(isset($_SESSION['data_insert_success'])){ echo '<div class="alert alert-success">'.$_SESSION['data_insert_success'].'</div>'; unset($_SESSION['data_insert_success']); }?>
+  <?php if(isset($_SESSION['data_insert_error'])){ echo '<div class="alert alert-warning">'.$_SESSION['data_insert_error'].'</div>'; unset($_SESSION['data_insert_error']);}?>
   
   <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
   <div class="row">

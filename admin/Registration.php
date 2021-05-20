@@ -1,6 +1,6 @@
 <?php
-require_once './dbcon.php';
-session_start();
+//require_once './dbcon.php';
+//session_start();
 if(isset($_POST['Registration'])){
 	$name = $_POST['name'];
 	$email = $_POST['email'];
@@ -82,12 +82,14 @@ if(isset($_POST['Registration'])){
   </head>
   <body style="background:#bdc9c5">
   <div class="container animate__animated animate__shakeX">
-  <div class="container">
+  <div class="row">
+  <div class="content">
   <h1><b>User Registration</b></h1>
   <hr />
-  <div class="col-md-12">
-  <?php if(isset($_SESSION['data_insert_success'])){ echo '<div class="alert alert-success">'.$_SESSION['data_insert_success'].'</div>';}?>
-  <?php if(isset($_SESSION['data_insert_error'])){ echo '<div class="alert alert-warning">'.$_SESSION['data_insert_error'].'</div>';}?>
+  <div class="col-sm-12">
+  <?php if(isset($_SESSION['data_insert_success'])){ echo '<div class="alert alert-success">'.$_SESSION['data_insert_success'].'</div>'; unset($_SESSION['data_insert_success']); }?>
+  <?php if(isset($_SESSION['data_insert_error'])){ echo '<div class="alert alert-warning">'.$_SESSION['data_insert_error'].'</div>'; unset($_SESSION['data_insert_error']);}?>
+  
   <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
   <div class="row">
     <label for="name" class="control-label col-sm-1">Name</label>
@@ -132,11 +134,7 @@ if(isset($_POST['Registration'])){
     </div>
   </div></br>
   </form>
-  <hr/>
-  </form>
-  <footer>
-  <p>Copyright &copy;2021 All right reservered</p>
-  </footer>
+  </div>
   </div>
   </div>
   </div>

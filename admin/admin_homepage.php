@@ -32,8 +32,8 @@ if(!isset($_SESSION['user_login'])){
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
 	    <li><a href="#"><i class="fa fa-user"></i> Welcome:Saikat Saha</a></li>
-		<li><a href="Registration.php"><i class="fa fa-user-plus"></i> Add user</a></li>
-		<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+		<li><a href="admin_homepage.php?page=Registration"><i class="fa fa-user-plus"></i> Add user</a></li>
+		<li><a href="admin_homepage.php?page=user_profile"><i class="fa fa-user"></i> Profile</a></li>
         <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
       </ul>
     </div>
