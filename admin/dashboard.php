@@ -2,6 +2,15 @@
 <ol class="breadcrumb">
   <li class="active"><i class="fa fa-industry"></i> Dashboard</li>
 </ol>
+
+<?php
+$count_student = mysqli_query($link,"SELECT * FROM `student_info`");
+$total_student = mysqli_num_rows($count_student); 
+
+$count_user = mysqli_query($link,"SELECT * FROM `users`");
+$total_user = mysqli_num_rows($count_user); 
+?>
+
 <div class="row">
 <div class="col-sm-4">
 <div class="panel panel-primary">
@@ -11,11 +20,11 @@
 <i class="fa fa-users fa-5x"></i>
 </div>
 <div class="col-xs-9">
-<div class="pull-right"style="font-size: 45px">10</div>
+<div class="pull-right"style="font-size: 45px"><?php echo $total_student; ?></div>
 </div>
 </div>
 </div>
-<a href="#">
+<a href="admin_homepage.php?page=all_student">
 <div class="panel-footer">
 <span class="pull-left">All student</span>
 <span class="pull-right"><i class="fa fa-arrow-circle-o-right"></i></span>
@@ -32,13 +41,13 @@
 <i class="fa fa-users fa-5x"></i>
 </div>
 <div class="col-xs-9">
-<div class="pull-right"style="font-size: 45px">10</div>
+<div class="pull-right"style="font-size: 45px"><?php echo $total_user; ?></div>
 </div>
 </div>
 </div>
-<a href="#">
+<a href="admin_homepage.php?page=all_user">
 <div class="panel-footer">
-<span class="pull-left">All student</span>
+<span class="pull-left">All user</span>
 <span class="pull-right"><i class="fa fa-arrow-circle-o-right"></i></span>
 <div class="clearfix"></div>
 </div>

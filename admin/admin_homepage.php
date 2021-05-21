@@ -1,6 +1,10 @@
 <?php
 require_once './dbcon.php';
 session_start();
+$session_user = $_SESSION['user_login'];
+$user_data = mysqli_query($link,"SELECT `Name` FROM `users` WHERE `Username` ='$session_user'");
+$user_row = mysqli_fetch_assoc($user_data); 
+
 if(!isset($_SESSION['user_login'])){
 	header('location:login.php');
 }
@@ -31,7 +35,7 @@ if(!isset($_SESSION['user_login'])){
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-	    <li><a href="#"><i class="fa fa-user"></i> Welcome:Saikat Saha</a></li>
+	    <li><a href="#"><i class="fa fa-user"></i> Welcome:<?php echo $user_row['Name'] ?></a></li>
 		<li><a href="admin_homepage.php?page=Registration"><i class="fa fa-user-plus"></i> Add user</a></li>
 		<li><a href="admin_homepage.php?page=user_profile"><i class="fa fa-user"></i> Profile</a></li>
         <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
